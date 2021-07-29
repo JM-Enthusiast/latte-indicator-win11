@@ -1,3 +1,7 @@
+
+
+
+
 # Latte Win11 Indicator
 A Win11 style indicator for [Latte Dock](https://phabricator.kde.org/source/latte-dock/repository/master/).
 
@@ -6,17 +10,13 @@ A Win11 style indicator for [Latte Dock](https://phabricator.kde.org/source/latt
 <i>Default indicator settings</i>
 </p>
 
+https://user-images.githubusercontent.com/23425754/127577075-54592108-3755-4393-b1bd-199e42202dd5.mp4
 <p align="center">
-<video  height="240" width="600" autoplay loop>
-  <source src="/assets/hover.mp4" type="video/mp4">
-</video><br/>
 <i>Hover/unhover animations</i>
 </p>
 
+https://user-images.githubusercontent.com/23425754/127576985-a07c7ca6-6270-4de2-b268-20e56bc89131.mp4
 <p align="center">
-<video  height="240" width="600" autoplay loop>
-  <source src="/assets/minimize.mp4" type="video/mp4">
-</video><br/>
 <i>Minimize/bring to front animations</i>
 </p>
 
