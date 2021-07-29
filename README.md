@@ -1,7 +1,3 @@
-
-
-
-
 # Latte Win11 Indicator
 A Win11 style indicator for [Latte Dock](https://phabricator.kde.org/source/latte-dock/repository/master/).
 
@@ -21,7 +17,7 @@ https://user-images.githubusercontent.com/23425754/127576985-a07c7ca6-6270-4de2-
 </p>
 
 <p align="center">
-<img src="" width="560" ><br/>
+<img src="./assets/win11-indicator-settings.png" width="560" ><br/>
 <i>Indicator settings</i>
 </p>
 
