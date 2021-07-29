@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kcfg xmlns="http://www.kde.org/standards/kcfg/1.0"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.kde.org/standards/kcfg/1.0
+      http://www.kde.org/standards/kcfg/1.0/kcfg.xsd" >
+  <kcfgfile name=""/>
+  <group name="General">
+    <entry name="colorStyle" type="Enum">
+        <choices>
+            <choice name="Simple"/>
+            <choice name="Colorful"/>
+        </choices>
+        <default>0</default>
+    </entry>
+    <entry name="progressAnimationEnabled" type="Bool">
+        <default>true</default>
+    </entry>  
+    <entry name="enabledForApplets" type="Bool">
+        <default>true</default>
+    </entry>    
+    <entry name="maxBackgroundOpacity" type="Double">
+        <default>0.35</default>
+    </entry>
+    <entry name="animationSpeed" type="Double">
+        <default>1.0</default>
+    </entry>
+    <entry name="backgroundAlwaysActive" type="Bool">
+        <default>false</default>
+    </entry>
+    <entry name="showLineIndicator" type="Bool">
+        <label>Show the line indicator</label>
+        <default>false</default>
+    </entry>
+    <entry name="lineVisible" type="Bool">
+        <label>Choose whether the line indicator is visible or invisible</label>
+        <default>true</default>
+    </entry>
+    <entry name="reversed" type="Bool">
+        <label>Reverse the line indicator position</label>
+        <default>false</default>
+    </entry>
+    <entry name="lineThickness" type="Double">
+        <label>Change the line indicator thickness</label>
+        <default>0.8</default>
+    </entry>
+    <entry name="lineRadius" type="Int">
+        <label>Change the line indicator radius</label>
+        <default>15</default>
+    </entry>
+    <entry name="lineHeight" type="Int">
+        <label>Change the line indicator vertical position</label>
+        <default>15</default>
+    </entry>
+    <entry name="appletPadding" type="Double">
+        <default>0.15</default>
+    </entry>
+    <entry name="lengthPadding" type="Double">
+        <default>0.35</default>
+    </entry>
+  </group>
+</kcfg>
