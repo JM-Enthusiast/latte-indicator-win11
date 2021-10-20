@@ -1,6 +1,6 @@
 [Desktop Entry]
 Name=Win11
-Comment=Win11 style indicator for Latte Dock
+Comment=Latte Win11 style indicator
 
 Encoding=UTF-8
 Type=Service
@@ -12,7 +12,8 @@ X-Latte-MainScript=ui/main.qml
 X-Latte-ConfigUi=config/config.qml
 X-Latte-ConfigXml=config/main.xml
 
-X-KDE-PluginInfo-Author=CyrusGaviione
+X-KDE-PluginInfo-Author=CyrusGav
+X-KDE-PluginInfo-Email=
 X-KDE-PluginInfo-Name=org.kde.latte.win11
 X-KDE-PluginInfo-Version=0.1.0
 X-KDE-PluginInfo-Category=Latte Indicator

@@ -15,6 +15,7 @@ LatteComponents.IndicatorItem {
     providesClickedAnimation: true
     minThicknessPadding: 0.10
     minLengthPadding: 0.05
+    enabledForApplets: indicator && indicator.configuration ? indicator.configuration.enabledForApplets : true
 
     readonly property bool progressVisible: indicator.hasOwnProperty("progressVisible") ? indicator.progressVisible : false
     readonly property bool isHorizontal: plasmoid.formFactor === PlasmaCore.Types.Horizontal
@@ -78,7 +79,13 @@ LatteComponents.IndicatorItem {
         return 0.85;
     }
     
-    // IF shrinking/scaling the icon ever becomes supported, make a sequential animation with shrink then position
+    property real scale: {
+        if (indicator.isPressed)
+            return 0.8;
+
+        return 1;
+    }
+
     property real position: {
         if (indicator.isPressed && indicator.hasActive)
             return plasmoid.location === PlasmaCore.Types.BottomEdge ? indicator.currentIconSize/10 : -indicator.currentIconSize/10;
@@ -88,20 +95,122 @@ LatteComponents.IndicatorItem {
         return 0;
     }
 
-    Binding{
+    // Binding{
+    //     target: level.requested
+    //     property: "iconScale"
+    //     when: level && level.requested && level.requested.hasOwnProperty("iconScale")
+    //     value: scale
+    // }
+
+    // Behavior on scale {
+    //     enabled: true
+    //     NumberAnimation {
+    //         duration: 100
+    //         easing.type: Easing.OutQuad
+    //     }
+    // }
+
+    // Not sure if using animations this way is super efficient, but it was the most realiable way
+    // to achieve the effect I was looking for (even tho it still doesn't look amazing)
+
+    // If someone finds the exact bezier curve that is used in Windows 11, it would be awesome to use it
+    // instead of my (pretty iffy) approximation
+
+    // iconScale only works with my modified version of Latte
+
+    // Transition: clicked -> activate or minimze (depending) -> default
+    NumberAnimation {
+            running: indicator.isPressed
+            duration: 125
+            loops: Animation.Infinite
+            target: level.requested
+            property: "iconScale"
+            to: 0.75
+            easing.type: Easing.OutQuad
+
+            onStopped: {
+                anim.start()
+            }
+        }
+    NumberAnimation {
+        id: anim
+        duration: 125
         target: level.requested
-        property: "iconOffsetY"
-        when: level && level.requested && level.requested.hasOwnProperty("iconOffsetY")
-        value: position
+        property: "iconScale"
+        to: 1
+        easing.type: Easing.OutQuad
+        onStopped: {
+            pause.start()
+            }
+        
+    }
+    
+    // Even though the pause is extremely short and subtle, I feel like it makes the animation look a lot better
+    PauseAnimation {
+        id: pause
+        duration: 15
+        onStopped: {
+            if (indicator.isMinimized) // Would be nice to make this happen only if no window is shown
+                down.start()
+            else if (indicator.isActive)
+                up.start()
+            }
     }
 
-    Behavior on position {
-        enabled: true
-        NumberAnimation {
-            duration: 350
-            easing.type: Easing.OutBack
+    NumberAnimation {
+            id: down
+            duration: 215
+            target: level.requested
+            property: "iconOffsetY"
+            to: indicator.currentIconSize/10 //Make these dependant on config and orientation
+            easing.type: Easing.OutSine
+
+            onStopped: {
+                default.start()
+            }
         }
+    NumberAnimation {
+        id: up
+        duration: 215
+        target: level.requested
+        property: "iconOffsetY"
+        to: -indicator.currentIconSize/10
+        easing.type: Easing.OutSine
+        onStopped: {
+                default.start()
+            }
     }
+    
+    NumberAnimation {
+        id: default
+        duration: 215
+        target: level.requested
+        property: "iconOffsetY"
+        to: 0
+        easing.type: Easing.OutBack
+        easing.overshoot: 2
+    }
+
+    
+
+    // Binding{
+    //     target: level.requested
+    //     property: "iconOffsetY"
+    //     when: level && level.requested && level.requested.hasOwnProperty("iconOffsetY")
+    //     value: position
+    // }
+
+    // Behavior on position {
+    //     enabled: true
+    //     SpringAnimation {
+    //         duration: 350
+    //         // easing.type: Easing.OutBack
+    //         // alwaysRunToEnd: true
+    //         spring: 3.5
+    //         damping: 0.2
+    //         mass: 0.2
+    //     }
+    // }
 
     Binding{
         target: root

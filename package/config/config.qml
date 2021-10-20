@@ -107,7 +107,7 @@ ColumnLayout {
 
                 leftPadding: 0
                 value: indicator.configuration.maxBackgroundOpacity * 100
-                from: 20
+                from: 10
                 to: 100
                 stepSize: 1
                 wheelEnabled: false
