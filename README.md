@@ -42,3 +42,5 @@ This indicator theme is based on [latte-indicator-win10](https://github.com/psif
 # Missing features/issues
 - The line indicator and the progress bar don't work very well for right and left panels
 - There is currently no grouped tasks indicator
+
+I have only tested this indicator with 50px absolute icon size, 10% margin length and 30% margin thickness (Latte Dock settings), so please let me know if there are any issues with settings you use (I'll try my best to fix it but no promises)
