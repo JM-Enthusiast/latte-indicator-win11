@@ -166,7 +166,7 @@ LatteComponents.IndicatorItem {
             easing.type: Easing.OutSine
 
             onStopped: {
-                default.start()
+                defaut.start()
             }
         }
     NumberAnimation {
@@ -177,12 +177,12 @@ LatteComponents.IndicatorItem {
         to: -indicator.currentIconSize/10
         easing.type: Easing.OutSine
         onStopped: {
-                default.start()
+                defaut.start()
             }
     }
     
     NumberAnimation {
-        id: default
+        id: defaut // Can't call it default or it wont work
         duration: 215
         target: level.requested
         property: "iconOffsetY"
