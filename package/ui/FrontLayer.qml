@@ -7,7 +7,7 @@ import org.kde.plasma.core 2.0 as PlasmaCore
 Item {
     id: lineIndicator
     property bool showProgress: false
-    property int lineMargin: indicator.currentIconSize / 5 - 1
+    property int lineMargin: indicator.currentIconSize * 0.2
     readonly property bool isOnTop: (plasmoid.location === PlasmaCore.Types.TopEdge && !indicator.configuration.reversed)
 						    || (plasmoid.location === PlasmaCore.Types.BottomEdge && indicator.configuration.reversed)
     

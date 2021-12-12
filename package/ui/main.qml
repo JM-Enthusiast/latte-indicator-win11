@@ -116,8 +116,6 @@ LatteComponents.IndicatorItem {
     // If someone finds the exact bezier curve that is used in Windows 11, it would be awesome to use it
     // instead of my (pretty iffy) approximation
 
-    // iconScale only works with my modified version of Latte
-
     // Transition: clicked -> activate or minimze (depending) -> default
     NumberAnimation {
             running: indicator.isPressed
