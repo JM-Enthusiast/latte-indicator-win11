@@ -24,6 +24,7 @@ https://user-images.githubusercontent.com/23425754/127576985-a07c7ca6-6270-4de2-
 # Requires
 
 - Latte >= v0.10.0
+- Latte >= v0.10.4 (for animations)
 
 # Install
 
