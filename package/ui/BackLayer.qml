@@ -90,4 +90,16 @@ Item{
         opacity: mainRect.opacity + 0.05
         visible: mainRect.visible
     }
+
+    Loader{
+            id: frontLayer
+            anchors.fill: mainRect
+
+            active: indicator.isWindow
+            
+            sourceComponent: FrontLayer{
+                anchors.fill: mainRect
+                showProgress: root.progressVisible
+            }
+        }
 }

@@ -1,5 +1,9 @@
 ### CHANGELOG
 
+#### VERSION 0.1.2
+
+* Line indicator has better support for smaller docks
+
 #### Version 0.1.0
 
 * animations for hovering

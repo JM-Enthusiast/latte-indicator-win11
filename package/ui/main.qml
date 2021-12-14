@@ -251,17 +251,5 @@ LatteComponents.IndicatorItem {
                 anchors.fill: parent
             }
         }
-
-        Loader{
-            id: frontLayer
-            anchors.fill: parent
-
-            active: indicator.isWindow
-            
-            sourceComponent: FrontLayer{
-                anchors.fill: parent
-                showProgress: root.progressVisible
-            }
-        }
     }
 }
