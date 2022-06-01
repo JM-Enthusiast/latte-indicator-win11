@@ -30,6 +30,14 @@
     <entry name="lineVisible" type="Bool">
         <label>Choose whether the line indicator is visible or invisible</label>
         <default>true</default>
+    </entry> 
+    <entry name="lineColorOverride" type="Bool">
+        <label>Choose whether to override the line indicator color or not</label>
+        <default>false</default>
+    </entry>
+    <entry name="lineColor" type="Color">
+        <label>The line indicator's color (if overridden)</label>
+        <default>"#FFFFFFFF"</default>
     </entry>
     <entry name="reversed" type="Bool">
         <label>Reverse the line indicator position</label>

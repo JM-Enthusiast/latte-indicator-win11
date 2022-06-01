@@ -1,5 +1,6 @@
 import QtQuick 2.7
 import QtQuick.Controls 2.2
+import QtQuick.Dialogs 1.3
 import QtQuick.Layouts 1.3
 import QtGraphicalEffects 1.0
 
@@ -229,6 +230,60 @@ ColumnLayout {
                 horizontalAlignment: Text.AlignRight
                 Layout.minimumWidth: theme.mSize(theme.defaultFont).width * 4
                 Layout.maximumWidth: theme.mSize(theme.defaultFont).width * 4
+            }
+        }
+
+        RowLayout {
+            Layout.fillWidth: true
+            spacing: 2
+            visible: indicator.configuration.lineVisible
+
+            LatteComponents.CheckBox {
+                Layout.maximumWidth: dialog.optionsWidth
+                text: i18n("Override the line indicator color")
+                checked: indicator.configuration.lineColorOverride
+
+                onClicked: {
+                    indicator.configuration.lineColorOverride = !indicator.configuration.lineColorOverride
+                }
+		    }
+
+            PlasmaComponents.Button {
+                id: colorPickerBtn
+				Layout.minimumWidth: implicitWidth
+				Layout.maximumWidth: Layout.minimumWidth
+                visible: indicator.configuration.lineColorOverride
+				text: i18nc("Indicator Color", "Choose color")
+				checked: false
+				checkable: false
+				ToolTip.text: i18n("Color for the line indicator")
+				ToolTip.visible: hovered
+				ToolTip.delay: 1000
+
+                ColorDialog {
+                    id: lineColorDialog
+
+                    title: "Please choose a color"
+                    color: indicator.configuration.lineColor
+                    onAccepted: {
+                        indicator.configuration.lineColor = lineColorDialog.color
+                    }
+                }
+
+                onPressedChanged: {
+					if (pressed) {
+						lineColorDialog.open()
+					}
+				}
+			}
+
+            Rectangle {
+                id: colorRect
+                visible: indicator.configuration.lineColorOverride
+                width: colorPickerBtn.width
+                height: colorPickerBtn.height
+                radius: 5
+                color: indicator.configuration.lineColor
             }
         }
 

@@ -32,8 +32,8 @@ LatteComponents.IndicatorItem {
 
     readonly property int colorStyle: indicator.configuration.colorStyle
     readonly property real backColorBrightness: colorBrightness(indicator.palette.backgroundColor)
-    readonly property color activeColor: indicator.palette.buttonFocusColor
-    readonly property color outlineColor: backColorBrightness < 127 ? indicator.palette.backgroundColor : indicator.palette.textColor;
+    readonly property color activeColor: indicator.configuration.lineColorOverride ? indicator.configuration.lineColor : indicator.palette.buttonFocusColor    
+    readonly property color outlineColor: backColorBrightness < 127 ? indicator.palette.backgroundColor : indicator.palette.textColor
 
     function colorBrightness(color) {
         return colorBrightnessFromRGB(color.r * 255, color.g * 255, color.b * 255);
